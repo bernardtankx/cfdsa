@@ -1,0 +1,7 @@
+# workshop01
+docker build -t myapp .
+docker network create mynet
+docker volume create myvol
+docker run -d --network=mynet --name=myapp -p 3000:3000 -e DB_USER=root -e DB_PASSWORD=changeit myapp 
+docker run -d --network=mynet --name=mydb -v myvol:/var/lib/mysql stackupiss/northwind-db:v1
+docker network inspect mynet
