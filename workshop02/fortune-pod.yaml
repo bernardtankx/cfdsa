@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+    name: fortune
+    namespace: myns
+    labels:
+        app: fortune
+        version: v1
+
+spec:
+    containers:
+    - name: fortune
+      image: stackupiss/fortune:v1
+      imagePullPolicy: Always
+      ports:
+      - name: app-port
+        containerPort: 3000
